@@ -1,5 +1,7 @@
 #实现一个 Web 上的私信系统  
 
+---
+
 ##功能：  
 
 - [ ] * 用户可以注册、登录。需要 id（可以自己决定 email 或者 username）和 password  
@@ -21,6 +23,8 @@
 - [ ] * 自动把 A 添加为 B 联系人时，B 实时更新联系人列表  
 - [ ] * 部署，可在线演示  
 
+---
+
 ##progress  
 
 ###Plan  
@@ -36,29 +40,34 @@
 
 ###Database design  
 
-```
-CREATE TABLE `chats` (
-  `id` int(11) NOT NULL COMMENT '消息编号',
-  `sender` varchar(64) NOT NULL COMMENT '发送者',
-  `receiver` varchar(64) NOT NULL COMMENT '接收者',
-  `content` text NOT NULL COMMENT '消息内容',
-  `send_time` int(11) NOT NULL COMMENT '发送时间',
-  `is_del` int(11) NOT NULL DEFAULT '0' COMMENT '是否删除',
-  `is_read` int(11) NOT NULL DEFAULT '0' COMMENT '是否已读'
-);
+MySQL  
 
-CREATE TABLE `contacts` (
-  `username` varchar(32) NOT NULL COMMENT '本用户',
-  `contact` varchar(32) NOT NULL COMMENT '联系人'
-);
+*chats*
+字段|类型|注释|
+|----|----|--
+|id|int|消息编号
+|sender|varchar|发送者
+|receiver|varchar|接收者
+|content|text|消息内容
+|send_time|int|发送时间
+|is_del|int|是否删除
+|is_read|int|是否已读
 
-CREATE TABLE `users` (
-  `username` varchar(32) NOT NULL COMMENT '用户名',
-  `password` char(32) NOT NULL COMMENT '密码',
-  `create_time` int(11) NOT NULL COMMENT '注册时间',
-  `last_time` int(11) DEFAULT NULL COMMENT '上次登录时间'
-);
-```
+*usrs*
+|字段|类型|注释|
+|----|----|--
+|username|varchar|用户名
+|password|char|密码
+|create_time|int|注册时间
+|last_time|int|上次登录时间
+
+*contacts*
+|字段|类型|注释|
+|----|----|--
+|username|varchar|本用户
+|contact|varchar|联系人
+
+
 
 ###API design  
 
