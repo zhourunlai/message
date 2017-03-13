@@ -62,7 +62,7 @@ CREATE TABLE `users` (
 
 ###API design  
 
-1. /v1/signin  
-2. /v1/signup  
-3. /v1/[username]  
-4. /v1/[username]/contacts  
+1. 登录 /v1/signin  
+2. 注册 /v1/signup  
+3. 获取用户的信息 /v1/[username]  
+4. 获取用户的联系人的信息 /v1/[username]/contacts  
