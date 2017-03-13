@@ -31,11 +31,11 @@
 
 ###Prototype  
 
-![2](http://ww1.sinaimg.cn/large/9f47c048gy1fdlmxazaf9j21kw23v7wh)
+<img src="http://ww1.sinaimg.cn/large/9f47c048gy1fdlnkpb9msj21kw23vqf5" width = "300" height = "200" alt="2" />
 
 ###Database design  
 
-![3](http://ww1.sinaimg.cn/large/9f47c048gy1fdln8br0dtj21kw23v4qp)
+<img src="http://ww1.sinaimg.cn/large/9f47c048gy1fdlnkwyt0cj21kw16oajv" width = "300" height = "200" alt="3" />
 
 ###API design  
 1. /v1//signin  
