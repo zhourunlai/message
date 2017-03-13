@@ -31,11 +31,8 @@
 
 ###Prototype  
 
-![2](http://ww1.sinaimg.cn/large/9f47c048gy1fdlnkpb9msj21kw23vqf5)
+![2](http://ww1.sinaimg.cn/large/9f47c048gy1fdlnqt9qzjj21kw16ogxw)
 
-###Database design  
-
-![3](http://ww1.sinaimg.cn/large/9f47c048gy1fdlnkwyt0cj21kw16oajv)
 
 ###API design  
 1. /v1//signin  
@@ -43,3 +40,5 @@
 3. /v1/[username]  
 4. /v1/[username]/contacts    
 5.
+
+###Database design  
