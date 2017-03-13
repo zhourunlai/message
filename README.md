@@ -31,7 +31,7 @@
 
 ###Prototype  
 
-![2](http://ww1.sinaimg.cn/large/9f47c048gy1fdlnqt9qzjj21kw16ogxw)
+![2](http://ww1.sinaimg.cn/large/9f47c048gy1fdlnu5ebs0j21kw16oakv)
 
 
 ###API design  
