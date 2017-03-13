@@ -62,8 +62,39 @@ CREATE TABLE `users` (
 
 ###API design  
 
-1. 登录 /v1/signin  
-2. 注册 /v1/signup  
-3. 获取用户的信息 /v1/[username]  
-4. 获取用户的所以联系人的信息 /v1/[username]/contacts  
-5. 获取用户的某一个联系人的聊天信息 /v1/[username]/contacts/[username]  
+1. 登录
+```
+POST /v1/signin
+```  
+
+2. 注册  
+```
+POST /v1/signup
+```
+
+
+3. 获取用户信息  
+```
+GET /v1/[username]
+```
+
+4. 获取联系人信息
+```
+GET /v1/[username]/contacts
+```
+
+5. 新增联系人
+```
+GET /v1/[username]/contacts/[username]
+```
+
+5. 删除联系人
+```
+DEL /v1/[username]/contacts/[username]  
+```
+
+
+5. 获取与某一个联系人的聊天信息  
+```
+GET /v1/[username]/contacts/[username]/chats
+```
