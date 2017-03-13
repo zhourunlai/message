@@ -65,4 +65,5 @@ CREATE TABLE `users` (
 1. 登录 /v1/signin  
 2. 注册 /v1/signup  
 3. 获取用户的信息 /v1/[username]  
-4. 获取用户的联系人的信息 /v1/[username]/contacts  
+4. 获取用户的所以联系人的信息 /v1/[username]/contacts  
+5. 获取用户的某一个联系人的聊天信息 /v1/[username]/contacts/[username]  
