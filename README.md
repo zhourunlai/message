@@ -33,10 +33,13 @@
 
 ![1](http://ww1.sinaimg.cn/large/9f47c048gy1fdlms5yaoqj21kw0zk7wh)
 
+---
+
 ###Prototype  
 
 ![2](http://ww1.sinaimg.cn/large/9f47c048gy1fdlnu5ebs0j21kw16oakv)
 
+---
 
 ###Database design  
 
@@ -70,7 +73,7 @@
 |username|varchar|本用户|
 |contact|varchar|联系人|
 
-
+---
 
 ###API design  
 
