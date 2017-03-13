@@ -43,6 +43,7 @@
 MySQL  
 
 *chats*
+
 |字段|类型|注释|
 |----|----|----|
 |id|int|消息编号|
@@ -54,6 +55,7 @@ MySQL
 |is_read|int|是否已读|
 
 *usrs*
+
 |字段|类型|注释|
 |----|----|----|
 |username|varchar|用户名|
@@ -62,6 +64,7 @@ MySQL
 |last_time|int|上次登录时间
 
 *contacts*
+
 |字段|类型|注释|
 |----|----|----|
 |username|varchar|本用户|
