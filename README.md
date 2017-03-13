@@ -84,17 +84,17 @@
 
 ####1.登录
 ```
-POST /v1/signin
+GET /v1/[username]/signin
 ```  
 
 ####2.注册  
 ```
-POST /v1/signup
+GET /v1/[username]/signup
 ```
 
 ####3.登出
 ```
-GET /v1/signout
+GET /v1/[username]/signout
 ```
 
 ####4.获取用户信息  
