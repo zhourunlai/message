@@ -1,6 +1,8 @@
-#实现一个 Web 上的私信系统  
+#Web message systerm
+>参考「流利说」消息中心、「微信」的个人消息、「知乎」私信
 
-##功能：  
+
+##Demand：  
 
 - [ ] * 用户可以注册、登录。需要 id（可以自己决定 email 或者 username）和 password  
 - [ ] * 用户登录后，进入联系人列表页面  
@@ -26,8 +28,8 @@
 ##Progress  
 
 ###Plan  
->Deadline: 2 days  
->Add to Wunderlist  
+Deadline: 2 days  
+Add to Wunderlist  
 
 ![1](http://ww1.sinaimg.cn/large/9f47c048gy1fdlms5yaoqj21kw0zk7wh)
 
@@ -40,6 +42,7 @@
 ---
 
 ###Database design  
+>服务重启后数据不丢失
 
 ####1.MySQL  
 
