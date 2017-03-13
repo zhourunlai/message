@@ -35,7 +35,8 @@
 
 
 ###API design  
-1. /v1//signin  
+
+1. /v1/signin  
 2. /v1/signup  
 3. /v1/[username]  
 4. /v1/[username]/contacts    
