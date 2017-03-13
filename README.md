@@ -40,7 +40,7 @@
 
 ###Database design  
 
-MySQL  
+####1.MySQL  
 
 *chats*
 
@@ -74,52 +74,52 @@ MySQL
 
 ###API design  
 
-1.登录
+####1.登录
 ```
 POST /v1/signin
 ```  
 
-2.注册  
+####2.注册  
 ```
 POST /v1/signup
 ```
 
-3.登出
+####3.登出
 ```
 GET /v1/signout
 ```
 
-4.获取用户信息  
+####4.获取用户信息  
 ```
 GET /v1/[username]
 ```
 
-5.获取联系人信息
+####5.获取联系人信息
 ```
 GET /v1/[username]/contacts
 ```
 
-6.新增联系人
+####6.新增联系人
 ```
 GET /v1/[username]/contacts/[username]
 ```
 
-7.删除联系人
+####7.删除联系人
 ```
 DEL /v1/[username]/contacts/[username]  
 ```
 
-8.获取聊天信息  
+####8.获取聊天信息  
 ```
 GET /v1/[username]/contacts/[username]/chats
 ```
 
-9.删除聊天信息
+####9.删除聊天信息
 ```
 DEL /v1/[username]/contacts/[username]/chats/[id]
 ```
 
-10.已读回执
+####10.已读回执
 ```
 GET /v1/[username]/contacts/[username]/chats/[id]
 ```
