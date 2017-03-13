@@ -1,8 +1,6 @@
 #Web message systerm
->参考「流利说」消息中心、「微信」的个人消息、「知乎」私信
 
-
-##Demand：  
+##Demand：
 
 - [ ] * 用户可以注册、登录。需要 id（可以自己决定 email 或者 username）和 password  
 - [ ] * 用户登录后，进入联系人列表页面  
@@ -25,21 +23,30 @@
 
 
 
-##Progress  
+##Reference：
+
+1. 「流利说」消息中心
+2. 「微信」的个人消息
+3. 「知乎」私信
+
+
+
+##Progress：
 
 ###Plan  
+
 Deadline: 2 days  
 Add to Wunderlist  
 
 ![1](http://ww1.sinaimg.cn/large/9f47c048gy1fdlms5yaoqj21kw0zk7wh)
 
----
+
 
 ###Prototype  
 
 ![2](http://ww1.sinaimg.cn/large/9f47c048gy1fdlnu5ebs0j21kw16oakv)
 
----
+
 
 ###Database design  
 >服务重启后数据不丢失
@@ -80,7 +87,9 @@ Add to Wunderlist
 |----|----|
 |暂无|暂无|
 
----
+
+
+
 
 ###API design  
 >RESTful
