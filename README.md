@@ -103,3 +103,13 @@ DEL /v1/[username]/contacts/[username]
 ```
 GET /v1/[username]/contacts/[username]/chats
 ```
+
+9. 删除聊天信息
+```
+DEL /v1/[username]/contacts/[username]/chats/[id]
+```
+
+10. 已读回执
+```
+GET /v1/[username]/contacts/[username]/chats/[id]
+```
