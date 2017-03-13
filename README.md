@@ -71,9 +71,13 @@
 |username|varchar|本用户|
 |contact|varchar|联系人|
 
----
-
 ####2.Redis
+
+|Key|Value|
+|----|----|
+|暂无|暂无|
+
+---
 
 ###API design  
 
