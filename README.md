@@ -31,15 +31,15 @@
 
 ###Prototype  
 
-<img src="http://ww1.sinaimg.cn/large/9f47c048gy1fdlnkpb9msj21kw23vqf5" width = "300" height = "200" alt="2" />
+![2](http://ww1.sinaimg.cn/large/9f47c048gy1fdlnkpb9msj21kw23vqf5)
 
 ###Database design  
 
-<img src="http://ww1.sinaimg.cn/large/9f47c048gy1fdlnkwyt0cj21kw16oajv" width = "300" height = "200" alt="3" />
+![3](http://ww1.sinaimg.cn/large/9f47c048gy1fdlnkwyt0cj21kw16oajv)
 
 ###API design  
 1. /v1//signin  
 2. /v1/signup  
 3. /v1/[username]  
-4. /v1/[username]/contacts  
+4. /v1/[username]/contacts    
 5.
