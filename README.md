@@ -72,29 +72,34 @@ POST /v1/signin
 POST /v1/signup
 ```
 
+3. 登出
+```
+GET /v1/signout
+```
 
-3. 获取用户信息  
+
+4. 获取用户信息  
 ```
 GET /v1/[username]
 ```
 
-4. 获取联系人信息
+5. 获取联系人信息
 ```
 GET /v1/[username]/contacts
 ```
 
-5. 新增联系人
+6. 新增联系人
 ```
 GET /v1/[username]/contacts/[username]
 ```
 
-5. 删除联系人
+7. 删除联系人
 ```
 DEL /v1/[username]/contacts/[username]  
 ```
 
 
-5. 获取与某一个联系人的聊天信息  
+8. 获取聊天信息  
 ```
 GET /v1/[username]/contacts/[username]/chats
 ```
