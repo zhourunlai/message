@@ -34,12 +34,35 @@
 ![2](http://ww1.sinaimg.cn/large/9f47c048gy1fdlnu5ebs0j21kw16oakv)
 
 
+###Database design  
+
+```
+CREATE TABLE `chats` (
+  `id` int(11) NOT NULL COMMENT '消息编号',
+  `sender` varchar(64) NOT NULL COMMENT '发送者',
+  `receiver` varchar(64) NOT NULL COMMENT '接收者',
+  `content` text NOT NULL COMMENT '消息内容',
+  `send_time` int(11) NOT NULL COMMENT '发送时间',
+  `is_del` int(11) NOT NULL DEFAULT '0' COMMENT '是否删除',
+  `is_read` int(11) NOT NULL DEFAULT '0' COMMENT '是否已读'
+);
+
+CREATE TABLE `contacts` (
+  `username` varchar(32) NOT NULL COMMENT '本用户',
+  `contact` varchar(32) NOT NULL COMMENT '联系人'
+);
+
+CREATE TABLE `users` (
+  `username` varchar(32) NOT NULL COMMENT '用户名',
+  `password` char(32) NOT NULL COMMENT '密码',
+  `create_time` int(11) NOT NULL COMMENT '注册时间',
+  `last_time` int(11) DEFAULT NULL COMMENT '上次登录时间'
+);
+```
+
 ###API design  
 
 1. /v1/signin  
 2. /v1/signup  
 3. /v1/[username]  
-4. /v1/[username]/contacts    
-5.
-
-###Database design  
+4. /v1/[username]/contacts  
