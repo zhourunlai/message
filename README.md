@@ -146,12 +146,12 @@ POST /v1/user/signup
 GET /v1/user/signout
 ```
 
-### 4.搜索用户信息  
+### 4.搜索用户信息（检查用户名是否已经注册、添加联系人）  
 ```
 GET /v1/user/:username
 ```
 
-### 5.获取联系人信息
+### 5.获取联系人信息（显示联系人列表）
 ```
 GET /v1/user/:username/contact
 ```
@@ -166,7 +166,7 @@ GET /v1/user/:username/contacts/:contact_username
 DEL /v1/user/:username/contacts/:contact_username  
 ```
 
-### 8.获取聊天信息  
+### 8.获取聊天信息（显示历史消息）
 ```
 GET /v1/user/:username/contacts/:contact_username/chats
 ```
@@ -176,7 +176,7 @@ GET /v1/user/:username/contacts/:contact_username/chats
 DEL /v1/user/:username/contacts/:contact_username/chats/:id
 ```
 
-### 10.已读回执
+### 10.已读回执（未读置0）
 ```
 GET /v1/user/:username/contacts/:contact_username/chats/:id
 ```
