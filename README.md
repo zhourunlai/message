@@ -1,11 +1,25 @@
 #Web Message Systerm
 
-##Demand：
+##目录
+* [Demand](#Demand)
+* [Function](#Function)
+* [Reference](#Reference)
+* [Todos](#Todos)
+* [Systerm Design](#Systerm Design)
+* [Coding&Testing](#Coding&Testing)
+* [Database Design](#Database Design)
+* [API Design](#API Design)
+
+---
+
+
+
+##Demand
 实现一个 Web 上的私信系统
 
 
 
-##Function:
+##Function
 
 - [x] * 用户可以注册、登录。需要 id（可以自己决定 email 或者 username）和 password  
 - [ ] * 用户登录后，进入联系人列表页面  
@@ -28,7 +42,7 @@
 
 
 
-##Reference：
+##Reference
 
 1. 「流利说」消息中心
 2. 「微信」的个人消息
@@ -36,7 +50,7 @@
 
 
 
-##Todos  
+##Todos
 
 Deadline: 2 days  
 Add to Wunderlist  
@@ -45,7 +59,7 @@ Add to Wunderlist
 
 
 
-##Systerm Design  
+##Systerm Design
 1. ***前后端分离***  
 Front-end: vue2 + vuex + vue router + webpack + babel  
 Back-end: Beego  
@@ -61,7 +75,7 @@ Database: MySQL
 
 
 
-##Coding & Testing
+##Coding&Testing
 
 ```
 bee run -downdoc=true -gendoc=true
@@ -78,7 +92,7 @@ cnpm run dev
 
 
 
-##Database Design  
+##Database Design
 >服务重启后数据不丢失
 
 ###1.MySQL  
@@ -119,7 +133,7 @@ cnpm run dev
 
 
 
-##API Design  
+##API Design
 >RESTful
 
 ###1.登录
