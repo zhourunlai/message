@@ -58,17 +58,17 @@ func (u *UserController) Signout() {
 }
 
 // @Title searchUser
-// @Description user signin
+// @Description user searchUser
 // @Param	username		query 	string	true		"The username for search"
-// @Success 400 {string} search success
-// @Failure 401 search failed
+// @Success 400 {string} searchUser success
+// @Failure 401 searchUser failed
 // @router / [get]
 func (u *UserController) Get() {
 	username := u.GetString("username")
 	if models.SearchUser(username) {
-		u.Data["json"] = "search success"
+		u.Data["json"] = "searchUser success"
 	} else {
-		u.Data["json"] = "search failed"
+		u.Data["json"] = "searchUser failed"
 	}
 	u.ServeJSON()
 }
