@@ -63,7 +63,17 @@ Database: MySQL
 
 ##Coding & Testing
 
+```
+bee run -downdoc=true -gendoc=true
+```
 ![3](http://ww1.sinaimg.cn/large/9f47c048gy1fdm8bk33yxj21kw0zkamm)
+
+```
+cd vue-message
+cnpm install
+cnpm run build
+cnpm run dev
+```
 ![4](http://ww1.sinaimg.cn/large/9f47c048gy1fdm8dm5g2pj21kw0zkkfg)
 
 
