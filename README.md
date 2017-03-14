@@ -62,7 +62,7 @@ Add to Wunderlist
 
 ##Systerm Design
 1. ***前后端分离***  
-Front-end: vue2 + vuex + vue router + webpack + babel  
+Front-end: vue2 + vuex + webpack + babel  
 Back-end: Beego  
 Database: MySQL  
 
