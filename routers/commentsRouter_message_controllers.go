@@ -69,4 +69,11 @@ func init() {
 			[]string{"delete"},
 			nil})
 
+	beego.GlobalControllerRouter["message/controllers:UserController"] = append(beego.GlobalControllerRouter["message/controllers:UserController"],
+		beego.ControllerComments{
+			"UpdateChat",
+			`/:username/contacts/:contact_username/chats/:id`,
+			[]string{"get"},
+			nil})
+
 }

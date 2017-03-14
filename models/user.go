@@ -148,3 +148,14 @@ func DelChat(id int64) bool {
 	}
 	return true
 }
+
+func UpdateChat(id int64) bool {
+	o := orm.NewOrm()
+	_, err := o.QueryTable(new(Chat)).Filter("id", "id").Update(orm.Params{
+		"is_read": 1,
+	})
+	if err != nil {
+		return false
+	}
+	return true
+}

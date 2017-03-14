@@ -162,3 +162,22 @@ func (u *UserController) DelChat() {
 	}
 	u.ServeJSON()
 }
+
+// @Title updateChat
+// @Description user updateChat
+// @Param	id		query 	string	true		"The id for chat"
+// @Success 1000 {string} updateChat success
+// @Failure 1001 updateChat failed
+// @router /:username/contacts/:contact_username/chats/:id [get]
+func (u *UserController) UpdateChat() {
+	id_str := u.GetString(":id")
+	id_int, err := strconv.ParseInt(id_str, 10, 64)
+	if err != nil {
+	}
+	if models.UpdateChat(id_int) {
+		u.Data["json"] = "updateChat success"
+	} else {
+		u.Data["json"] = "updateChat failed"
+	}
+	u.ServeJSON()
+}
