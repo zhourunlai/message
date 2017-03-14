@@ -46,16 +46,16 @@ Add to Wunderlist
 
 
 ##Prototype  
-1. 前后端分离
-Front-end: vue2 + vuex + vue router + webpack + babel
-Back-end: Beego
-Database: MySQL
+1. 前后端分离  
+Front-end: vue2 + vuex + vue router + webpack + babel  
+Back-end: Beego  
+Database: MySQL  
 
-2. WebSocket 模式
+2. WebSocket 模式  
 
-3. Nginx 静态服务器，并且 load balancing
+3. Nginx 静态服务器，并且 load balancing  
 
-4. Docker 部署
+4. Docker 部署  
 
 ![2](http://ww1.sinaimg.cn/large/9f47c048gy1fdlnu5ebs0j21kw16oakv)
 
