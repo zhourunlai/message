@@ -7,7 +7,7 @@
 
 ##Function:
 
-- [ ] * 用户可以注册、登录。需要 id（可以自己决定 email 或者 username）和 password  
+- [x] * 用户可以注册、登录。需要 id（可以自己决定 email 或者 username）和 password  
 - [ ] * 用户登录后，进入联系人列表页面  
 - [ ] - 可以看到自己所有的联系人  
 - [ ] - 每个联系人需要显示对方 id 以及未读私信数量提醒  
