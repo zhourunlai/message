@@ -1,6 +1,10 @@
 #Web message systerm
 
 ##Demand：
+实现一个 Web 上的私信系统
+
+
+##Function:
 
 - [ ] * 用户可以注册、登录。需要 id（可以自己决定 email 或者 username）和 password  
 - [ ] * 用户登录后，进入联系人列表页面  
@@ -22,7 +26,6 @@
 - [ ] * 部署，可在线演示  
 
 
-
 ##Reference：
 
 1. 「流利说」消息中心
@@ -30,10 +33,7 @@
 3. 「知乎」私信
 
 
-
-##Progress：
-
-###Plan  
+##Plan  
 
 Deadline: 2 days  
 Add to Wunderlist  
@@ -43,16 +43,24 @@ Add to Wunderlist
 ---
 
 
+##Prototype  
+1. 前后端分离
+Front-end: vue2 + vuex + vue router + webpack + babel
+Back-end: Beego
+Database: MySQL
 
-###Prototype  
+2. WebSocket 模式
+
+3. Nginx 静态服务器，并且 load balancing
+
+4. Docker 部署
 
 ![2](http://ww1.sinaimg.cn/large/9f47c048gy1fdlnu5ebs0j21kw16oakv)
 
 ---
 
 
-
-###Database design  
+##Database design  
 >服务重启后数据不丢失
 
 ####1.MySQL  
@@ -94,9 +102,7 @@ Add to Wunderlist
 ---
 
 
-
-
-###API design  
+##API design  
 >RESTful
 
 ####1.登录
