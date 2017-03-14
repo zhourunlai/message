@@ -24,7 +24,7 @@ const store = new Vuex.Store({
                         content: 'Hi, 我是test1',
                         date: now
                     }, {
-                        content: '开始聊天吧！',
+                        content: '看什么看，赶快写 Golang',
                         date: now
                     }
                 ]
@@ -33,7 +33,7 @@ const store = new Vuex.Store({
                 id: 2,
                 user: {
                     name: 'test2',
-                    img: 'dist/images/3.jpg'
+                    img: 'dist/images/3.png'
                 },
                 messages: [
                     {

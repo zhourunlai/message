@@ -1,4 +1,4 @@
-#Web message systerm
+#Web Message Systerm
 
 ##Demand：
 实现一个 Web 上的私信系统
@@ -36,7 +36,7 @@
 
 
 
-##Plan  
+##Todos  
 
 Deadline: 2 days  
 Add to Wunderlist  
@@ -45,7 +45,7 @@ Add to Wunderlist
 
 
 
-##Prototype  
+##Systerm Design  
 1. 前后端分离  
 Front-end: vue2 + vuex + vue router + webpack + babel  
 Back-end: Beego  
@@ -61,7 +61,14 @@ Database: MySQL
 
 
 
-##Database design  
+##Coding & Testing
+
+![3](http://ww1.sinaimg.cn/large/9f47c048gy1fdm8bk33yxj21kw0zkamm)
+![4](http://ww1.sinaimg.cn/large/9f47c048gy1fdm8dm5g2pj21kw0zkkfg)
+
+
+
+##Database Design  
 >服务重启后数据不丢失
 
 ###1.MySQL  
@@ -102,7 +109,7 @@ Database: MySQL
 
 
 
-##API design  
+##API Design  
 >RESTful
 
 ###1.登录
