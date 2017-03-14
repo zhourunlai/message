@@ -18,7 +18,8 @@ type User struct {
 }
 
 type Contact struct {
-	Username string  `orm:"pk"`
+	Id       int     `orm:"pk"`
+	Username string  `orm:"size(64)"`
 	Contact  string  `orm:"size(64)"`
 	User     *User   `orm:"rel(fk)"`       //设置一对多关系
 	Chats    []*Chat `orm:"reverse(many)"` // 设置一对多的反向关系
@@ -68,8 +69,8 @@ func init() {
 
 func Signin(username, password string) bool {
 	o := orm.NewOrm()
-	qs := o.QueryTable(new(User)).Filter("username", username).Filter("password", password).Exist()
-	return qs
+	id := o.QueryTable(new(User)).Filter("username", username).Filter("password", password).Exist()
+	return id
 }
 
 func Signup(username, password string) bool {
@@ -95,6 +96,7 @@ func GetUser(username string) bool {
 func GetContact(username string) bool {
 	o := orm.NewOrm()
 	var c Contact
+	// TODO
 	_, err := o.QueryTable(new(Contact)).Filter("username", username).All(&c)
 	if err != nil {
 		return false
@@ -107,6 +109,20 @@ func AddContact(username, contact string) bool {
 	u := Contact{Username: username, Contact: contact}
 	_, err := o.Insert(&u)
 	if err != nil {
+		return false
+	}
+	return true
+}
+
+func DelContact(username, contact string) bool {
+	o := orm.NewOrm()
+	var c Contact
+	err1 := o.QueryTable(new(Contact)).Filter("username", username).Filter("contact", contact).One(&c, "Id")
+	if err1 == orm.ErrNoRows {
+		return false
+	}
+	_, err2 := o.QueryTable(new(Contact)).Filter("id", c.Id).Delete()
+	if err2 != nil {
 		return false
 	}
 	return true

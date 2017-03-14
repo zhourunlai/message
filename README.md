@@ -26,8 +26,8 @@
 - [x] * 用户登录后，进入联系人列表页面  
 - [x] - 可以看到自己所有的联系人  
 - [ ] - 每个联系人需要显示对方 id 以及未读私信数量提醒  
-- [ ] - 用户可以通过 id 添加新联系人（可以不需要对方同意）  
-- [ ] - 用户可以删除某个联系人，但保留与对方用户的消息等数据。当再次添加新联系人时，消息等数据都还在  
+- [x] - 用户可以通过 id 添加新联系人（可以不需要对方同意）  
+- [x] - 用户可以删除某个联系人，但保留与对方用户的消息等数据。当再次添加新联系人时，消息等数据都还在  
 - [ ] * 点击一个联系人会进入聊天界面，同时未读消息置为 0  
 - [ ] - 可以看到和某个用户的历史消息  
 - [ ] - 能够在这里收发私信（不需要实时，可以刷一下页面才看到新消息）  
@@ -97,6 +97,7 @@ Database: MySQL
 
 |字段|类型|注释|
 |----|----|----|
+|id|int|联系人关系编号|
 |username|varchar|本用户|
 |contact|varchar|联系人|
 
@@ -157,27 +158,27 @@ GET /v1/user/:username/contact
 
 ###6.新增联系人
 ```
-GET /v1/user/:username/contacts/:username
+GET /v1/user/:username/contacts/:contact_username
 ```
 
 ###7.删除联系人
 ```
-DEL /v1/user/:username/contacts/:username  
+DEL /v1/user/:username/contacts/:contact_username  
 ```
 
 ###8.获取聊天信息  
 ```
-GET /v1/user/:username/contacts/:username/chats
+GET /v1/user/:username/contacts/:contact_username/chats
 ```
 
 ###9.删除聊天信息
 ```
-DEL /v1/user/:username/contacts/:username/chats/:id
+DEL /v1/user/:username/contacts/:contact_username/chats/:id
 ```
 
 ###10.已读回执
 ```
-GET /v1/user/:username/contacts/:username/chats/:id
+GET /v1/user/:username/contacts/:contact_username/chats/:id
 ```
 
 

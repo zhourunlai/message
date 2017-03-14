@@ -105,3 +105,20 @@ func (u *UserController) AddContact() {
 	}
 	u.ServeJSON()
 }
+
+// @Title delContact
+// @Description user delContact
+// @Param	username		query 	string	true		"The username for delContact"
+// @Success 700 {string} delContact success
+// @Failure 701 delContact failed
+// @router /:username/contact/:contact_username [delete]
+func (u *UserController) DelContact() {
+	username := u.GetString("username")
+	contact := u.GetString("contact_username")
+	if models.DelContact(username, contact) {
+		u.Data["json"] = "delContact success"
+	} else {
+		u.Data["json"] = "delContact failed"
+	}
+	u.ServeJSON()
+}
