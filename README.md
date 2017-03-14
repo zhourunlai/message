@@ -15,12 +15,12 @@
 
 
 
-##Demand
+## Demand
 实现一个 Web 上的私信系统
 
 
 
-##Function
+## Function
 
 - [x] * 用户可以注册、登录。需要 id（可以自己决定 email 或者 username）和 password  
 - [x] * 用户登录后，进入联系人列表页面  
@@ -43,7 +43,7 @@
 
 
 
-##Reference
+## Reference
 
 1. 「流利说」消息中心
 2. 「微信」的个人消息
@@ -51,7 +51,7 @@
 
 
 
-##Todos
+## Todos
 
 Deadline: 2 days  
 Add to Wunderlist  
@@ -60,7 +60,7 @@ Add to Wunderlist
 
 
 
-##Systerm Design
+## Systerm Design
 1. ***前后端分离***  
 Front-end: vue2 + vuex + webpack + babel  
 Back-end: Beego + WebSocket  
@@ -79,10 +79,10 @@ Database: MySQL
 
 
 
-##Database Design
+## Database Design
 >服务重启后数据不丢失
 
-###1.MySQL  
+### 1.MySQL  
 
 *usrs* 表  
 
@@ -119,7 +119,7 @@ Database: MySQL
 *contacts* => *chats* 一对多  
 
 
-###2.Redis
+### 2.Redis
 
 |Key|Value|
 |----|----|
@@ -128,62 +128,62 @@ Database: MySQL
 
 
 
-##API Design
+## API Design
 >RESTful
 
-###1.登录
+### 1.登录
 ```
 GET /v1/user/signin
 ```  
 
-###2.注册  
+### 2.注册  
 ```
 POST /v1/user/signup
 ```
 
-###3.登出
+### 3.登出
 ```
 GET /v1/user/signout
 ```
 
-###4.搜索用户信息  
+### 4.搜索用户信息  
 ```
 GET /v1/user/:username
 ```
 
-###5.获取联系人信息
+### 5.获取联系人信息
 ```
 GET /v1/user/:username/contact
 ```
 
-###6.新增联系人
+### 6.新增联系人
 ```
 GET /v1/user/:username/contacts/:contact_username
 ```
 
-###7.删除联系人
+### 7.删除联系人
 ```
 DEL /v1/user/:username/contacts/:contact_username  
 ```
 
-###8.获取聊天信息  
+### 8.获取聊天信息  
 ```
 GET /v1/user/:username/contacts/:contact_username/chats
 ```
 
-###9.删除聊天信息
+### 9.删除聊天信息
 ```
 DEL /v1/user/:username/contacts/:contact_username/chats/:id
 ```
 
-###10.已读回执
+### 10.已读回执
 ```
 GET /v1/user/:username/contacts/:contact_username/chats/:id
 ```
 
 
 
-##Coding&Testing
+## Coding&Testing
 
 ```
 cd $GOPATH/src/
