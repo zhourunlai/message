@@ -4,6 +4,7 @@
 实现一个 Web 上的私信系统
 
 
+
 ##Function:
 
 - [ ] * 用户可以注册、登录。需要 id（可以自己决定 email 或者 username）和 password  
@@ -26,11 +27,13 @@
 - [ ] * 部署，可在线演示  
 
 
+
 ##Reference：
 
 1. 「流利说」消息中心
 2. 「微信」的个人消息
 3. 「知乎」私信
+
 
 
 ##Plan  
@@ -40,7 +43,6 @@ Add to Wunderlist
 
 ![1](http://ww1.sinaimg.cn/large/9f47c048gy1fdlms5yaoqj21kw0zk7wh)
 
----
 
 
 ##Prototype  
@@ -57,13 +59,12 @@ Database: MySQL
 
 ![2](http://ww1.sinaimg.cn/large/9f47c048gy1fdlnu5ebs0j21kw16oakv)
 
----
 
 
 ##Database design  
 >服务重启后数据不丢失
 
-####1.MySQL  
+###1.MySQL  
 
 *chats*
 
@@ -93,64 +94,63 @@ Database: MySQL
 |username|varchar|本用户|
 |contact|varchar|联系人|
 
-####2.Redis
+###2.Redis
 
 |Key|Value|
 |----|----|
 |暂无|暂无|
 
----
 
 
 ##API design  
 >RESTful
 
-####1.登录
+###1.登录
 ```
 GET /v1/:username/signin
 ```  
 
-####2.注册  
+###2.注册  
 ```
 GET /v1/:username/signup
 ```
 
-####3.登出
+###3.登出
 ```
 GET /v1/:username/signout
 ```
 
-####4.获取用户信息  
+###4.获取用户信息  
 ```
 GET /v1/:username
 ```
 
-####5.获取联系人信息
+###5.获取联系人信息
 ```
 GET /v1/:username/contacts
 ```
 
-####6.新增联系人
+###6.新增联系人
 ```
 GET /v1/:username/contacts/:username
 ```
 
-####7.删除联系人
+###7.删除联系人
 ```
 DEL /v1/:username/contacts/:username  
 ```
 
-####8.获取聊天信息  
+###8.获取聊天信息  
 ```
 GET /v1/:username/contacts/:username/chats
 ```
 
-####9.删除聊天信息
+###9.删除聊天信息
 ```
 DEL /v1/:username/contacts/:username/chats/:id
 ```
 
-####10.已读回执
+###10.已读回执
 ```
 GET /v1/:username/contacts/:username/chats/:id
 ```
