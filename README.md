@@ -145,7 +145,7 @@ POST /v1/user/signup
 GET /v1/user/signout
 ```
 
-###4.获取用户信息  
+###4.搜索用户信息  
 ```
 GET /v1/user/:username
 ```

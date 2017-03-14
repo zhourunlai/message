@@ -68,16 +68,24 @@ func init() {
 
 func Signin(username, password string) bool {
 	o := orm.NewOrm()
-	qs := o.QueryTable(new(User))
-	qs.Filter("username", username)
-	qs.Filter("password", password)
-	return qs.Exist()
+	qs := o.QueryTable(new(User)).Filter("username", username).Filter("password", password).Exist()
+	return qs
 }
 
 func Signup(username, password string) bool {
 	o := orm.NewOrm()
 	u := User{Username: username, Password: password, Create_time: time.Now().Unix()}
 	_, err := o.Insert(&u)
+	if err != nil {
+		return false
+	}
+	return true
+}
+
+func SearchUser(username string) bool {
+	o := orm.NewOrm()
+	var u User
+	err := o.QueryTable(new(User)).Filter("username", username).One(&u)
 	if err != nil {
 		return false
 	}
