@@ -179,15 +179,23 @@ GET /v1/user/:username/contacts/:username/chats/:id
 ##Coding&Testing
 
 ```
+cd $GOPATH/src/
+
+//安装beego
+go get github.com/astaxie/beego
+//安装bee工具
+go get github.com/beego/bee
+
 git clone https://github.com/zhourunlai/message.git
-cd message
+cd message/
+
 //启动
 bee run -downdoc=true -gendoc=true
 ```
 ![3](http://ww1.sinaimg.cn/large/9f47c048gy1fdm8bk33yxj21kw0zkamm)
 
 ```
-cd vue-message
+cd vue-message/
 //安装依赖
 cnpm install
 //测试

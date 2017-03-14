@@ -1,6 +1,8 @@
 package models
 
 import (
+	"time"
+
 	"github.com/astaxie/beego/orm"
 	_ "github.com/go-sql-driver/mysql"
 )
@@ -33,10 +35,13 @@ type Chat struct {
 
 func init() {
 	orm.RegisterDriver("mysql", orm.DRMySQL)
-	orm.RegisterDataBase("default", "mysql", "root:root@/orm_test?charset=utf8")
+	orm.RegisterDataBase("default", "mysql", "root:root@/message?charset=utf8")
 	orm.RegisterModel(new(User), new(Contact), new(Chat))
+	orm.DefaultTimeLoc = time.UTC
 }
 
 func Signin(username, password string) bool {
+	o := orm.NewOrm()
+
 	return false
 }
