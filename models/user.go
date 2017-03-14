@@ -24,7 +24,7 @@ type Contact struct {
 }
 
 type Chat struct {
-	Id        int
+	Id        int    `orm:"pk"`
 	Sender    string `orm:"size(64)"`
 	Receiver  string `orm:"size(64)"`
 	Content   string
@@ -32,6 +32,18 @@ type Chat struct {
 	Is_del    int
 	Is_read   int
 	Contact   *Contact `orm:"rel(fk)"` //设置一对多关系
+}
+
+func (u *User) TableName() string {
+	return "users"
+}
+
+func (u *Contact) TableName() string {
+	return "contacts"
+}
+
+func (u *Chat) TableName() string {
+	return "chats"
 }
 
 func init() {
@@ -48,18 +60,19 @@ func init() {
 	if timezone != "" {
 		conn = conn + "&loc=" + url.QueryEscape(timezone)
 	}
+
 	orm.RegisterDataBase("default", "mysql", conn, 5, 30)
+
+	orm.RegisterModel(new(User), new(Contact), new(Chat))
 
 	if beego.AppConfig.String("runmode") == "dev" {
 		orm.Debug = true
 	}
-
-	orm.RegisterModel(new(User), new(Contact), new(Chat))
 }
 
 func Signin(username, password string) bool {
 	o := orm.NewOrm()
-	qs := o.QueryTable("users")
+	qs := o.QueryTable(new(User))
 	qs.Filter("username", username)
 	qs.Filter("password", password)
 	return qs.Exist()
