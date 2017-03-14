@@ -14,4 +14,7 @@
 .glide/
 
 .DS_Store
+
+# This prohect
 message
+vue-message/node_modules
