@@ -67,6 +67,7 @@ Back-end: Beego + WebSocket
 Database: MySQL  
 
 2. ***WebSocket*** 模式  
+发布订阅
 
 3. Nginx 静态服务器，并且 load balancing  
 
