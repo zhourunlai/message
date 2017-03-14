@@ -64,14 +64,14 @@ Add to Wunderlist
 Front-end: vue2 + vuex + vue router + webpack + babel  
 Back-end: Beego  
 Database: MySQL  
-学习：[beego 的 MVC 架构介绍](https://beego.me/docs/mvc/)  
-
 
 2. ***WebSocket*** 模式  
 
 3. Nginx 静态服务器，并且 load balancing  
 
 4. Docker 部署  
+
+学习：[beego 的 MVC 架构介绍](https://beego.me/docs/mvc/)  
 
 ![2](http://ww1.sinaimg.cn/large/9f47c048gy1fdlnu5ebs0j21kw16oakv)
 
