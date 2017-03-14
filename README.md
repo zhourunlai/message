@@ -64,6 +64,8 @@ Add to Wunderlist
 Front-end: vue2 + vuex + vue router + webpack + babel  
 Back-end: Beego  
 Database: MySQL  
+学习：[beego 的 MVC 架构介绍](https://beego.me/docs/mvc/)  
+
 
 2. ***WebSocket*** 模式  
 
