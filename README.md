@@ -188,8 +188,7 @@ cd $GOPATH/src/
 go get github.com/astaxie/beego
 //安装bee工具
 go get github.com/beego/bee
-git clone https://github.com/zhourunlai/message.git
-cd message/
+git clone https://github.com/zhourunlai/message.git & cd message/
 //启动
 bee run -downdoc=true -gendoc=true
 ```
