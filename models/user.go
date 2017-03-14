@@ -5,6 +5,7 @@ import (
 
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
+	_ "github.com/go-sql-driver/mysql"
 )
 
 type User struct {
@@ -34,6 +35,8 @@ type Chat struct {
 }
 
 func init() {
+	orm.RegisterDriver("mysql", orm.DRMySQL)
+
 	dbhost := beego.AppConfig.String("db.host")
 	dbport := beego.AppConfig.String("db.port")
 	dbuser := beego.AppConfig.String("db.user")
