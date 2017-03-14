@@ -112,6 +112,9 @@ Database: MySQL
 |is_read|int|是否已读|
 
 
+*users* => *contacts* 一对多
+*contacts => *chats* 一对多
+
 ###2.Redis
 
 |Key|Value|
@@ -180,15 +183,12 @@ GET /v1/user/:username/contacts/:username/chats/:id
 
 ```
 cd $GOPATH/src/
-
 //安装beego
 go get github.com/astaxie/beego
 //安装bee工具
 go get github.com/beego/bee
-
 git clone https://github.com/zhourunlai/message.git
 cd message/
-
 //启动
 bee run -downdoc=true -gendoc=true
 ```
