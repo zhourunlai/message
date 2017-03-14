@@ -101,3 +101,13 @@ func GetContact(username string) bool {
 	}
 	return true
 }
+
+func AddContact(username, contact string) bool {
+	o := orm.NewOrm()
+	u := Contact{Username: username, Contact: contact}
+	_, err := o.Insert(&u)
+	if err != nil {
+		return false
+	}
+	return true
+}

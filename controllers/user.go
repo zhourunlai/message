@@ -88,3 +88,20 @@ func (u *UserController) GetContact() {
 	}
 	u.ServeJSON()
 }
+
+// @Title addContact
+// @Description user addContact
+// @Param	username		query 	string	true		"The username for addContact"
+// @Success 600 {string} addContact success
+// @Failure 601 addContact failed
+// @router /:username/contact/:contact_username [get]
+func (u *UserController) AddContact() {
+	username := u.GetString("username")
+	contact := u.GetString("contact_username")
+	if models.AddContact(username, contact) {
+		u.Data["json"] = "addContact success"
+	} else {
+		u.Data["json"] = "addContact failed"
+	}
+	u.ServeJSON()
+}
