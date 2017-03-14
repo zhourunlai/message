@@ -2,6 +2,7 @@ package models
 
 import (
 	"net/url"
+	"time"
 
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
@@ -11,8 +12,8 @@ import (
 type User struct {
 	Username    string `orm:"pk"`
 	Password    string `orm:"size(64)"`
-	Create_time int
-	Last_time   int
+	Create_time int64
+	Last_time   int64
 	Contacts    []*Contact `orm:"reverse(many)"` // 设置一对多的反向关系
 }
 
@@ -28,7 +29,7 @@ type Chat struct {
 	Sender    string `orm:"size(64)"`
 	Receiver  string `orm:"size(64)"`
 	Content   string
-	Send_time int
+	Send_time int64
 	Is_del    int
 	Is_read   int
 	Contact   *Contact `orm:"rel(fk)"` //设置一对多关系
@@ -47,24 +48,19 @@ func (u *Chat) TableName() string {
 }
 
 func init() {
-	orm.RegisterDriver("mysql", orm.DRMySQL)
-
 	dbhost := beego.AppConfig.String("db.host")
 	dbport := beego.AppConfig.String("db.port")
 	dbuser := beego.AppConfig.String("db.user")
 	dbpass := beego.AppConfig.String("db.pass")
 	dbname := beego.AppConfig.String("db.name")
 	timezone := beego.AppConfig.String("db.timezone")
-
 	conn := dbuser + ":" + dbpass + "@tcp(" + dbhost + ":" + dbport + ")/" + dbname + "?charset=utf8"
 	if timezone != "" {
 		conn = conn + "&loc=" + url.QueryEscape(timezone)
 	}
-
+	orm.RegisterDriver("mysql", orm.DRMySQL)
 	orm.RegisterDataBase("default", "mysql", conn, 5, 30)
-
 	orm.RegisterModel(new(User), new(Contact), new(Chat))
-
 	if beego.AppConfig.String("runmode") == "dev" {
 		orm.Debug = true
 	}
@@ -76,4 +72,14 @@ func Signin(username, password string) bool {
 	qs.Filter("username", username)
 	qs.Filter("password", password)
 	return qs.Exist()
+}
+
+func Signup(username, password string) bool {
+	o := orm.NewOrm()
+	u := User{Username: username, Password: password, Create_time: time.Now().Unix()}
+	_, err := o.Insert(&u)
+	if err != nil {
+		return false
+	}
+	return true
 }
