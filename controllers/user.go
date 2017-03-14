@@ -91,7 +91,8 @@ func (u *UserController) GetContact() {
 
 // @Title addContact
 // @Description user addContact
-// @Param	username		query 	string	true		"The username for addContact"
+// @Param	username		query 	string	true		"The username for me"
+// @Param	contact			query 	string	true		"The username for contact"
 // @Success 600 {string} addContact success
 // @Failure 601 addContact failed
 // @router /:username/contact/:contact_username [get]
@@ -108,7 +109,8 @@ func (u *UserController) AddContact() {
 
 // @Title delContact
 // @Description user delContact
-// @Param	username		query 	string	true		"The username for delContact"
+// @Param	username		query 	string	true		"The username for me"
+// @Param	contact			query 	string	true		"The username for contact"
 // @Success 700 {string} delContact success
 // @Failure 701 delContact failed
 // @router /:username/contact/:contact_username [delete]
