@@ -112,9 +112,11 @@ Database: MySQL
 |is_del|int|是否删除|
 |is_read|int|是否已读|
 
+![3](http://ww1.sinaimg.cn/large/9f47c048gy1fdmgb5gdepj21kw0zk7pr)
 
 *users* => *contacts* 一对多  
 *contacts* => *chats* 一对多  
+
 
 ###2.Redis
 

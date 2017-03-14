@@ -8,7 +8,7 @@ import (
 )
 
 type User struct {
-	Username    string `orm:"size(64)"`
+	Username    string `orm:"pk"`
 	Password    string `orm:"size(64)"`
 	Create_time int
 	Last_time   int
@@ -16,7 +16,7 @@ type User struct {
 }
 
 type Contact struct {
-	Username string  `orm:"size(64)"`
+	Username string  `orm:"pk"`
 	Contact  string  `orm:"size(64)"`
 	User     *User   `orm:"rel(fk)"`       //设置一对多关系
 	Chats    []*Chat `orm:"reverse(many)"` // 设置一对多的反向关系
@@ -36,11 +36,18 @@ type Chat struct {
 func init() {
 	orm.RegisterDriver("mysql", orm.DRMySQL)
 	orm.RegisterDataBase("default", "mysql", "root:root@/message?charset=utf8")
+	orm.SetMaxIdleConns("default", 30)
+	orm.SetMaxOpenConns("default", 30)
 	orm.RegisterModel(new(User), new(Contact), new(Chat))
 	orm.DefaultTimeLoc = time.UTC
 }
 
 func Signin(username, password string) bool {
-
+	o := orm.NewOrm()
+	sql := "SELECT * FROM user WHERE username=" + username + " AND password=" + password
+	num, err := o.Raw(sql).QueryRows()
+	if num != 0 && err != nil {
+		return true
+	}
 	return false
 }

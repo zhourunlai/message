@@ -16,7 +16,7 @@ type UserController struct {
 // @Param	username		query 	string	true		"The username for signin"
 // @Param	password		query 	string	true		"The password for signin"
 // @Success 200 {string} signin success
-// @Failure 401 user not exist
+// @Failure 401 signin failed
 // @router /signin [get]
 func (u *UserController) Signin() {
 	username := u.GetString("username")
@@ -24,7 +24,7 @@ func (u *UserController) Signin() {
 	if models.Signin(username, password) {
 		u.Data["json"] = "signin success"
 	} else {
-		u.Data["json"] = "user not exist"
+		u.Data["json"] = "signin failed"
 	}
 	u.ServeJSON()
 }
