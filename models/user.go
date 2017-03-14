@@ -41,7 +41,6 @@ func init() {
 }
 
 func Signin(username, password string) bool {
-	o := orm.NewOrm()
 
 	return false
 }
