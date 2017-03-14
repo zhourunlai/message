@@ -48,7 +48,7 @@ func (u *UserController) Signup() {
 }
 
 // @Title signout
-// @Description Logs out current logged in user session
+// @Description user signout
 // @Success 300 {string} signout success
 // @Failure 301 signout failed
 // @router /signout [get]
@@ -57,18 +57,34 @@ func (u *UserController) Signout() {
 	u.ServeJSON()
 }
 
-// @Title searchUser
-// @Description user searchUser
-// @Param	username		query 	string	true		"The username for search"
-// @Success 400 {string} searchUser success
-// @Failure 401 searchUser failed
-// @router / [get]
+// @Title getUser
+// @Description user getUser
+// @Param	username		query 	string	true		"The username for getUser"
+// @Success 400 {string} getUser success
+// @Failure 401 getUser failed
+// @router /:username [get]
 func (u *UserController) Get() {
-	username := u.GetString("username")
-	if models.SearchUser(username) {
-		u.Data["json"] = "searchUser success"
+	username := u.GetString(":username")
+	if models.GetUser(username) {
+		u.Data["json"] = "getUser success"
 	} else {
-		u.Data["json"] = "searchUser failed"
+		u.Data["json"] = "getUser failed"
+	}
+	u.ServeJSON()
+}
+
+// @Title getContact
+// @Description user getContact
+// @Param	username		query 	string	true		"The username for getContact"
+// @Success 500 {string} getContact success
+// @Failure 501 getContact failed
+// @router /:username/contact [get]
+func (u *UserController) GetContact() {
+	username := u.GetString("username")
+	if models.GetContact(username) {
+		u.Data["json"] = "getContact success"
+	} else {
+		u.Data["json"] = "getContact failed"
 	}
 	u.ServeJSON()
 }

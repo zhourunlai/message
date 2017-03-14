@@ -82,10 +82,20 @@ func Signup(username, password string) bool {
 	return true
 }
 
-func SearchUser(username string) bool {
+func GetUser(username string) bool {
 	o := orm.NewOrm()
 	var u User
 	err := o.QueryTable(new(User)).Filter("username", username).One(&u)
+	if err != nil {
+		return false
+	}
+	return true
+}
+
+func GetContact(username string) bool {
+	o := orm.NewOrm()
+	var c Contact
+	_, err := o.QueryTable(new(Contact)).Filter("username", username).All(&c)
 	if err != nil {
 		return false
 	}

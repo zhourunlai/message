@@ -30,7 +30,14 @@ func init() {
 	beego.GlobalControllerRouter["message/controllers:UserController"] = append(beego.GlobalControllerRouter["message/controllers:UserController"],
 		beego.ControllerComments{
 			"Get",
-			`/`,
+			`/:username`,
+			[]string{"get"},
+			nil})
+
+	beego.GlobalControllerRouter["message/controllers:UserController"] = append(beego.GlobalControllerRouter["message/controllers:UserController"],
+		beego.ControllerComments{
+			"GetContact",
+			`/:username/contact`,
 			[]string{"get"},
 			nil})
 
