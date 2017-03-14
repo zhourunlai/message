@@ -46,12 +46,12 @@ Add to Wunderlist
 
 
 ##Systerm Design  
-1. 前后端分离  
+1. ***前后端分离***  
 Front-end: vue2 + vuex + vue router + webpack + babel  
 Back-end: Beego  
 Database: MySQL  
 
-2. WebSocket 模式  
+2. ***WebSocket*** 模式  
 
 3. Nginx 静态服务器，并且 load balancing  
 
