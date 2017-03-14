@@ -1,13 +1,13 @@
 <script>
 import { actions } from './store';
 
-import Card from 'components/card';
+import Info from 'components/info';
 import List from 'components/list';
 import Text from 'components/text';
-import Message from 'components/message';
+import Chat from 'components/chat';
 
 export default {
-    components: { Card, List, Text, Message },
+    components: { Info, List, Text, Chat },
     vuex: {
         actions: actions
     },
@@ -20,11 +20,11 @@ export default {
 <template>
 <div id="app">
     <div class="sidebar">
-        <card></card>
+        <info></info>
         <list></list>
     </div>
     <div class="main">
-        <message></message>
+        <Chat></Chat>
         <text></text>
     </div>
 </div>

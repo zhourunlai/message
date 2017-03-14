@@ -18,7 +18,7 @@ export default {
 </script>
 
 <template>
-<div class="card">
+<div class="info">
     <header>
         <img class="avatar" width="40" height="40" :alt="user.name" :src="user.img">
         <p class="name">{{user.name}}</p>
@@ -30,7 +30,7 @@ export default {
 </template>
 
 <style lang="less" scoped>
-.card {
+.info {
     padding: 12px;
     border-bottom: solid 1px #24272C;
 

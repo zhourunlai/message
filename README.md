@@ -210,4 +210,4 @@ cnpm run dev
 //打包成js
 cnpm run build
 ```
-![5](http://ww1.sinaimg.cn/large/9f47c048gy1fdm8dm5g2pj21kw0zkkfg)
+![5](http://ww1.sinaimg.cn/large/9f47c048gy1fdmuudctk7j21kw0zkdsm)

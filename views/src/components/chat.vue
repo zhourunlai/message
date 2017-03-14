@@ -27,7 +27,7 @@ export default {
 </script>
 
 <template>
-<div class="message" v-scroll-bottom="session.messages">
+<div class="chat" v-scroll-bottom="session.messages">
     <ul v-if="session">
         <li v-for="item in session.messages">
             <p class="time">
@@ -43,7 +43,7 @@ export default {
 </template>
 
 <style lang="less" scoped>
-.message {
+.chat {
     padding: 10px 15px;
     overflow-y: scroll;
 
