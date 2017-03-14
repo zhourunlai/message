@@ -1,35 +1,42 @@
 package models
 
-var (
-	UserList map[string]*User
+import (
+	"github.com/astaxie/beego/orm"
+	_ "github.com/go-sql-driver/mysql"
 )
 
-func init() {
-	UserList = make(map[string]*User)
-	u := User{"xiaorun", "123456", 1489456049, 1489456097}
-	UserList["xiaorun"] = &u
-}
-
 type User struct {
-	Username string
-	Password string
-	// Profile  Profile
+	Username    string `orm:"size(64)"`
+	Password    string `orm:"size(64)"`
 	Create_time int
 	Last_time   int
+	Contacts    []*Contact `orm:"reverse(many)"` // 设置一对多的反向关系
 }
 
-// type Profile struct {
-// 	Gender  string
-// 	Age     int
-// 	Address string
-// 	Email   string
-// }
+type Contact struct {
+	Username string  `orm:"size(64)"`
+	Contact  string  `orm:"size(64)"`
+	User     *User   `orm:"rel(fk)"`       //设置一对多关系
+	Chats    []*Chat `orm:"reverse(many)"` // 设置一对多的反向关系
+}
+
+type Chat struct {
+	Id        int
+	Sender    string `orm:"size(64)"`
+	Receiver  string `orm:"size(64)"`
+	Content   string
+	Send_time int
+	Is_del    int
+	Is_read   int
+	Contact   *Contact `orm:"rel(fk)"` //设置一对多关系
+}
+
+func init() {
+	orm.RegisterDriver("mysql", orm.DRMySQL)
+	orm.RegisterDataBase("default", "mysql", "root:root@/orm_test?charset=utf8")
+	orm.RegisterModel(new(User), new(Contact), new(Chat))
+}
 
 func Signin(username, password string) bool {
-	for _, u := range UserList {
-		if u.Username == username && u.Password == password {
-			return true
-		}
-	}
 	return false
 }

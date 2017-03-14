@@ -83,18 +83,6 @@ Database: MySQL
 
 ###1.MySQL  
 
-*chats*
-
-|字段|类型|注释|
-|----|----|----|
-|id|int|消息编号|
-|sender|varchar|发送者|
-|receiver|varchar|接收者|
-|content|text|消息内容|
-|send_time|int|发送时间|
-|is_del|int|是否删除|
-|is_read|int|是否已读|
-
 *usrs*
 
 |字段|类型|注释|
@@ -110,6 +98,19 @@ Database: MySQL
 |----|----|----|
 |username|varchar|本用户|
 |contact|varchar|联系人|
+
+*chats*
+
+|字段|类型|注释|
+|----|----|----|
+|id|int|消息编号|
+|sender|varchar|发送者|
+|receiver|varchar|接收者|
+|content|text|消息内容|
+|send_time|int|发送时间|
+|is_del|int|是否删除|
+|is_read|int|是否已读|
+
 
 ###2.Redis
 
