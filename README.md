@@ -6,9 +6,10 @@
 * [Reference](#reference)
 * [Todos](#todos)
 * [Systerm Design](#systerm-design)
-* [Coding&Testing](#codingtesting)
 * [Database Design](#database-design)
 * [API Design](#api-design)
+* [Coding&Testing](#codingtesting)
+
 
 ---
 
@@ -77,25 +78,6 @@ Database: MySQL
 
 
 
-##Coding&Testing
-
-```
-git clone https://github.com/zhourunlai/message.git
-cd message
-bee run -downdoc=true -gendoc=true
-```
-![3](http://ww1.sinaimg.cn/large/9f47c048gy1fdm8bk33yxj21kw0zkamm)
-
-```
-cd vue-message
-cnpm install
-cnpm run build
-cnpm run dev
-```
-![4](http://ww1.sinaimg.cn/large/9f47c048gy1fdm8dm5g2pj21kw0zkkfg)
-
-
-
 ##Database Design
 >服务重启后数据不丢失
 
@@ -134,6 +116,7 @@ cnpm run dev
 |Key|Value|
 |----|----|
 |暂无|暂无|
+
 
 
 
@@ -189,3 +172,22 @@ DEL /v1/user/:username/contacts/:username/chats/:id
 ```
 GET /v1/user/:username/contacts/:username/chats/:id
 ```
+
+
+
+##Coding&Testing
+
+```
+git clone https://github.com/zhourunlai/message.git
+cd message
+bee run -downdoc=true -gendoc=true
+```
+![3](http://ww1.sinaimg.cn/large/9f47c048gy1fdm8bk33yxj21kw0zkamm)
+
+```
+cd vue-message
+cnpm install
+cnpm run build
+cnpm run dev
+```
+![4](http://ww1.sinaimg.cn/large/9f47c048gy1fdm8dm5g2pj21kw0zkkfg)
