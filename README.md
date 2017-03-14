@@ -63,7 +63,7 @@ Add to Wunderlist
 ##Systerm Design
 1. ***前后端分离***  
 Front-end: vue2 + vuex + webpack + babel  
-Back-end: Beego  
+Back-end: Beego + WebSocket  
 Database: MySQL  
 
 2. ***WebSocket*** 模式  
