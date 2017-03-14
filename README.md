@@ -180,14 +180,18 @@ GET /v1/user/:username/contacts/:username/chats/:id
 ```
 git clone https://github.com/zhourunlai/message.git
 cd message
+//启动
 bee run -downdoc=true -gendoc=true
 ```
 ![3](http://ww1.sinaimg.cn/large/9f47c048gy1fdm8bk33yxj21kw0zkamm)
 
 ```
 cd vue-message
+//安装依赖
 cnpm install
-cnpm run build
+//测试
 cnpm run dev
+//打包成js
+cnpm run build
 ```
 ![4](http://ww1.sinaimg.cn/large/9f47c048gy1fdm8dm5g2pj21kw0zkkfg)
