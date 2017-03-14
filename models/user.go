@@ -6,7 +6,7 @@ var (
 
 func init() {
 	UserList = make(map[string]*User)
-	u := User{"xiaorun", "123456", "1489456049", "1489456097"}
+	u := User{"xiaorun", "123456", 1489456049, 1489456097}
 	UserList["xiaorun"] = &u
 }
 
@@ -32,11 +32,4 @@ func Signin(username, password string) bool {
 		}
 	}
 	return false
-}
-
-func Signup(username, password string) string {
-	u.Username = username
-	u.Password = password
-	UserList[u.Username] = &u
-	return u.Username
 }

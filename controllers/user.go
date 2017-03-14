@@ -12,11 +12,11 @@ type UserController struct {
 }
 
 // @Title signin
-// @Description Logs user into the system
-// @Param	username		query 	string	true		"The username for login"
-// @Param	password		query 	string	true		"The password for login"
+// @Description user signin
+// @Param	username		query 	string	true		"The username for signin"
+// @Param	password		query 	string	true		"The password for signin"
 // @Success 200 {string} signin success
-// @Failure 403 user not exist
+// @Failure 401 user not exist
 // @router /signin [get]
 func (u *UserController) Signin() {
 	username := u.GetString("username")
@@ -25,24 +25,6 @@ func (u *UserController) Signin() {
 		u.Data["json"] = "signin success"
 	} else {
 		u.Data["json"] = "user not exist"
-	}
-	u.ServeJSON()
-}
-
-// @Title signup
-// @Description Logs user into the system
-// @Param	username		query 	string	true		"The username for login"
-// @Param	password		query 	string	true		"The password for login"
-// @Success 200 {string} signup success
-// @Failure 403 body is empty
-// @router /signup [post]
-func (u *UserController) Signup() {
-	username := u.GetString("username")
-	password := u.GetString("password")
-	if models.Signup(username, password) {
-		u.Data["json"] = "signup success"
-	} else {
-		u.Data["json"] = "body is empty"
 	}
 	u.ServeJSON()
 }
