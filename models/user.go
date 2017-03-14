@@ -1,8 +1,9 @@
 package models
 
 import (
-	"time"
+	"net/url"
 
+	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
 	_ "github.com/go-sql-driver/mysql"
 )
@@ -34,20 +35,30 @@ type Chat struct {
 }
 
 func init() {
-	orm.RegisterDriver("mysql", orm.DRMySQL)
-	orm.RegisterDataBase("default", "mysql", "root:root@/message?charset=utf8")
-	orm.SetMaxIdleConns("default", 30)
-	orm.SetMaxOpenConns("default", 30)
+	dbhost := beego.AppConfig.String("db.host")
+	dbport := beego.AppConfig.String("db.port")
+	dbuser := beego.AppConfig.String("db.user")
+	dbpass := beego.AppConfig.String("db.pass")
+	dbname := beego.AppConfig.String("db.name")
+	timezone := beego.AppConfig.String("db.timezone")
+
+	conn := dbuser + ":" + dbpass + "@tcp(" + dbhost + ":" + dbport + ")/" + dbname + "?charset=utf8"
+	if timezone != "" {
+		conn = conn + "&loc=" + url.QueryEscape(timezone)
+	}
+	orm.RegisterDataBase("default", "mysql", conn, 5, 30)
+
+	if beego.AppConfig.String("runmode") == "dev" {
+		orm.Debug = true
+	}
+
 	orm.RegisterModel(new(User), new(Contact), new(Chat))
-	orm.DefaultTimeLoc = time.UTC
 }
 
 func Signin(username, password string) bool {
 	o := orm.NewOrm()
-	sql := "SELECT * FROM user WHERE username=" + username + " AND password=" + password
-	num, err := o.Raw(sql).QueryRows()
-	if num != 0 && err != nil {
-		return true
-	}
-	return false
+	qs := o.QueryTable("users")
+	qs.Filter("username", username)
+	qs.Filter("password", password)
+	return qs.Exist()
 }
