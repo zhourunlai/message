@@ -113,8 +113,8 @@ Database: MySQL
 |is_read|int|是否已读|
 
 
-*users* => *contacts* 一对多
-*contacts => *chats* 一对多
+*users* => *contacts* 一对多  
+*contacts* => *chats* 一对多  
 
 ###2.Redis
 
