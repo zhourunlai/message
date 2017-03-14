@@ -37,21 +37,35 @@ func init() {
 	beego.GlobalControllerRouter["message/controllers:UserController"] = append(beego.GlobalControllerRouter["message/controllers:UserController"],
 		beego.ControllerComments{
 			"GetContact",
-			`/:username/contact`,
+			`/:username/contacts`,
 			[]string{"get"},
 			nil})
 
 	beego.GlobalControllerRouter["message/controllers:UserController"] = append(beego.GlobalControllerRouter["message/controllers:UserController"],
 		beego.ControllerComments{
 			"AddContact",
-			`/:username/contact/:contact_username`,
+			`/:username/contacts/:contact_username`,
 			[]string{"get"},
 			nil})
 
 	beego.GlobalControllerRouter["message/controllers:UserController"] = append(beego.GlobalControllerRouter["message/controllers:UserController"],
 		beego.ControllerComments{
 			"DelContact",
-			`/:username/contact/:contact_username`,
+			`/:username/contacts/:contact_username`,
+			[]string{"delete"},
+			nil})
+
+	beego.GlobalControllerRouter["message/controllers:UserController"] = append(beego.GlobalControllerRouter["message/controllers:UserController"],
+		beego.ControllerComments{
+			"GetChat",
+			`/:username/contacts/:contact_username/chats`,
+			[]string{"get"},
+			nil})
+
+	beego.GlobalControllerRouter["message/controllers:UserController"] = append(beego.GlobalControllerRouter["message/controllers:UserController"],
+		beego.ControllerComments{
+			"DelChat",
+			`/:username/contacts/:contact_username/chats/:id`,
 			[]string{"delete"},
 			nil})
 

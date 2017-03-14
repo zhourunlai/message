@@ -2,6 +2,7 @@ package controllers
 
 import (
 	"message/models"
+	"strconv"
 
 	"github.com/astaxie/beego"
 )
@@ -78,9 +79,9 @@ func (u *UserController) Get() {
 // @Param	username		query 	string	true		"The username for getContact"
 // @Success 500 {string} getContact success
 // @Failure 501 getContact failed
-// @router /:username/contact [get]
+// @router /:username/contacts [get]
 func (u *UserController) GetContact() {
-	username := u.GetString("username")
+	username := u.GetString(":username")
 	if models.GetContact(username) {
 		u.Data["json"] = "getContact success"
 	} else {
@@ -95,10 +96,10 @@ func (u *UserController) GetContact() {
 // @Param	contact			query 	string	true		"The username for contact"
 // @Success 600 {string} addContact success
 // @Failure 601 addContact failed
-// @router /:username/contact/:contact_username [get]
+// @router /:username/contacts/:contact_username [get]
 func (u *UserController) AddContact() {
-	username := u.GetString("username")
-	contact := u.GetString("contact_username")
+	username := u.GetString(":username")
+	contact := u.GetString(":contact_username")
 	if models.AddContact(username, contact) {
 		u.Data["json"] = "addContact success"
 	} else {
@@ -113,14 +114,51 @@ func (u *UserController) AddContact() {
 // @Param	contact			query 	string	true		"The username for contact"
 // @Success 700 {string} delContact success
 // @Failure 701 delContact failed
-// @router /:username/contact/:contact_username [delete]
+// @router /:username/contacts/:contact_username [delete]
 func (u *UserController) DelContact() {
-	username := u.GetString("username")
-	contact := u.GetString("contact_username")
+	username := u.GetString(":username")
+	contact := u.GetString(":contact_username")
 	if models.DelContact(username, contact) {
 		u.Data["json"] = "delContact success"
 	} else {
 		u.Data["json"] = "delContact failed"
+	}
+	u.ServeJSON()
+}
+
+// @Title getChat
+// @Description user getChat
+// @Param	username		query 	string	true		"The username for me"
+// @Param	contact			query 	string	true		"The username for contact"
+// @Success 800 {string} getChat success
+// @Failure 801 getChat failed
+// @router /:username/contacts/:contact_username/chats [get]
+func (u *UserController) GetChat() {
+	username := u.GetString(":username")
+	contact := u.GetString(":contact_username")
+	if models.GetChat(username, contact) {
+		u.Data["json"] = "getChat success"
+	} else {
+		u.Data["json"] = "getChat failed"
+	}
+	u.ServeJSON()
+}
+
+// @Title delChat
+// @Description user delContact
+// @Param	id		query 	string	true		"The id for chat"
+// @Success 900 {string} delChat success
+// @Failure 901 delChat failed
+// @router /:username/contacts/:contact_username/chats/:id [delete]
+func (u *UserController) DelChat() {
+	id_str := u.GetString(":id")
+	id_int, err := strconv.ParseInt(id_str, 10, 64)
+	if err != nil {
+	}
+	if models.DelChat(id_int) {
+		u.Data["json"] = "delChat success"
+	} else {
+		u.Data["json"] = "delChat failed"
 	}
 	u.ServeJSON()
 }

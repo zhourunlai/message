@@ -18,7 +18,7 @@ type User struct {
 }
 
 type Contact struct {
-	Id       int     `orm:"pk"`
+	Id       int64   `orm:"pk"`
 	Username string  `orm:"size(64)"`
 	Contact  string  `orm:"size(64)"`
 	User     *User   `orm:"rel(fk)"`       //设置一对多关系
@@ -26,13 +26,13 @@ type Contact struct {
 }
 
 type Chat struct {
-	Id        int    `orm:"pk"`
+	Id        int64  `orm:"pk"`
 	Sender    string `orm:"size(64)"`
 	Receiver  string `orm:"size(64)"`
 	Content   string
 	Send_time int64
-	Is_del    int
-	Is_read   int
+	Is_del    int8
+	Is_read   int8
 	Contact   *Contact `orm:"rel(fk)"` //设置一对多关系
 }
 
@@ -123,6 +123,27 @@ func DelContact(username, contact string) bool {
 	}
 	_, err2 := o.QueryTable(new(Contact)).Filter("id", c.Id).Delete()
 	if err2 != nil {
+		return false
+	}
+	return true
+}
+
+func GetChat(username, contact string) bool {
+	o := orm.NewOrm()
+	var t Chat
+	// TODO
+	_, err1 := o.QueryTable(new(Chat)).Filter("sender", username).Filter("receiver", contact).All(&t)
+	_, err2 := o.QueryTable(new(Chat)).Filter("receiver", username).Filter("sender", contact).All(&t)
+	if err1 != nil && err2 != nil {
+		return false
+	}
+	return true
+}
+
+func DelChat(id int64) bool {
+	o := orm.NewOrm()
+	_, err := o.QueryTable(new(Chat)).Filter("id", id).Delete()
+	if err != nil {
 		return false
 	}
 	return true
