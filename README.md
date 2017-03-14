@@ -84,7 +84,7 @@ Database: MySQL
 
 ###1.MySQL  
 
-*usrs*
+*usrs* 表  
 
 |字段|类型|注释|
 |----|----|----|
@@ -93,14 +93,14 @@ Database: MySQL
 |create_time|int|注册时间|
 |last_time|int|上次登录时间
 
-*contacts*
+*contacts* 表  
 
 |字段|类型|注释|
 |----|----|----|
 |username|varchar|本用户|
 |contact|varchar|联系人|
 
-*chats*
+*chats* 表  
 
 |字段|类型|注释|
 |----|----|----|
