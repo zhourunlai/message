@@ -10,7 +10,7 @@ import (
 	"message/models"
 )
 
-type MessageController struct {
+type MainController struct {
 	beego.Controller
 }
 
@@ -19,7 +19,7 @@ type Subscription struct {
 	New     <-chan models.Event // New events coming in.
 }
 
-func (this *MessageController) Get() {
+func (this *MainController) Get() {
 	this.Data["username"] = "xiaorun"
 	this.TplName = "index.html"
 }

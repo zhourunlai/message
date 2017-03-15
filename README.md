@@ -192,9 +192,8 @@ GET /v1/user/:username/contacts/:contact_username/chats/:id
 ├── README.md  
 ├── conf  
 │   └── app.conf  
-├── controllers  
-│   ├── chat.go      ------------      私信交互  
-│   ├── message.go   ------------      渲染前台  
+├── controllers   
+│   ├── main.go      ------------      渲染前台  
 │   ├── user.go      ------------      API 接口  
 │   └── websocket.go ------------      WS 接口  
 ├── docs  
