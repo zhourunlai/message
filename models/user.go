@@ -60,8 +60,8 @@ func init() {
 		conn = conn + "&loc=" + url.QueryEscape(timezone)
 	}
 	orm.RegisterDriver("mysql", orm.DRMySQL)
-	orm.RegisterDataBase("default", "mysql", conn, 5, 30)
-	orm.RegisterModel(new(User), new(Contact), new(Chat))
+	orm.RegisterDataBase("default", "mysql", conn, 5, 30) // 建立连接
+	orm.RegisterModel(new(User), new(Contact), new(Chat)) // 注册模型
 	if beego.AppConfig.String("runmode") == "dev" {
 		orm.Debug = true
 	}
@@ -69,8 +69,8 @@ func init() {
 
 func Signin(username, password string) bool {
 	o := orm.NewOrm()
-	id := o.QueryTable(new(User)).Filter("username", username).Filter("password", password).Exist()
-	return id
+	exist := o.QueryTable(new(User)).Filter("username", username).Filter("password", password).Exist()
+	return exist
 }
 
 func Signup(username, password string) bool {
@@ -93,25 +93,18 @@ func GetUser(username string) bool {
 	return true
 }
 
-func GetContact(username string) bool {
+func GetContact(username string) ([]*Contact, error) {
 	o := orm.NewOrm()
-	var c Contact
-	// TODO
-	_, err := o.QueryTable(new(Contact)).Filter("username", username).All(&c)
-	if err != nil {
-		return false
-	}
-	return true
+	var contacts []*Contact
+	_, err := o.QueryTable(new(Contact)).Filter("username", username).All(&contacts)
+	return contacts, err
 }
 
-func AddContact(username, contact string) bool {
+func AddContact(username, contact string) (int64, error) {
 	o := orm.NewOrm()
 	u := Contact{Username: username, Contact: contact}
-	_, err := o.Insert(&u)
-	if err != nil {
-		return false
-	}
-	return true
+	id, err := o.Insert(&u)
+	return id, err
 }
 
 func DelContact(username, contact string) bool {
@@ -128,16 +121,19 @@ func DelContact(username, contact string) bool {
 	return true
 }
 
-func GetChat(username, contact string) bool {
+func GetChat(username, contact string) []*Chat {
 	o := orm.NewOrm()
-	var t Chat
-	// TODO
-	_, err1 := o.QueryTable(new(Chat)).Filter("sender", username).Filter("receiver", contact).All(&t)
-	_, err2 := o.QueryTable(new(Chat)).Filter("receiver", username).Filter("sender", contact).All(&t)
-	if err1 != nil && err2 != nil {
-		return false
+	var chat []*Chat
+	// 事务处理
+	err := o.Begin()
+	o.QueryTable(new(Chat)).Filter("sender", username).Filter("receiver", contact).All(&chat)
+	o.QueryTable(new(Chat)).Filter("receiver", username).Filter("sender", contact).All(&chat)
+	if err != nil {
+		o.Rollback()
+	} else {
+		o.Commit()
 	}
-	return true
+	return chat
 }
 
 func DelChat(id int64) bool {

@@ -61,13 +61,13 @@ func (u *UserController) Signout() {
 // @Title getUser
 // @Description user getUser
 // @Param	username		query 	string	true		"The username for getUser"
-// @Success 400 {string} getUser success
+// @Success 400 {string} getUser success, show username
 // @Failure 401 getUser failed
 // @router /:username [get]
 func (u *UserController) Get() {
 	username := u.GetString(":username")
 	if models.GetUser(username) {
-		u.Data["json"] = "getUser success"
+		u.Data["json"] = username
 	} else {
 		u.Data["json"] = "getUser failed"
 	}
@@ -77,13 +77,14 @@ func (u *UserController) Get() {
 // @Title getContact
 // @Description user getContact
 // @Param	username		query 	string	true		"The username for getContact"
-// @Success 500 {string} getContact success
+// @Success 500 {string} getContact success, show contacts
 // @Failure 501 getContact failed
 // @router /:username/contacts [get]
 func (u *UserController) GetContact() {
 	username := u.GetString(":username")
-	if models.GetContact(username) {
-		u.Data["json"] = "getContact success"
+	contacts, err := models.GetContact(username)
+	if err == nil {
+		u.Data["json"] = contacts
 	} else {
 		u.Data["json"] = "getContact failed"
 	}
@@ -94,14 +95,15 @@ func (u *UserController) GetContact() {
 // @Description user addContact
 // @Param	username		query 	string	true		"The username for me"
 // @Param	contact			query 	string	true		"The username for contact"
-// @Success 600 {string} addContact success
+// @Success 600 {id} addContact success , show id
 // @Failure 601 addContact failed
 // @router /:username/contacts/:contact_username [get]
 func (u *UserController) AddContact() {
 	username := u.GetString(":username")
 	contact := u.GetString(":contact_username")
-	if models.AddContact(username, contact) {
-		u.Data["json"] = "addContact success"
+	id, err := models.AddContact(username, contact)
+	if err == nil {
+		u.Data["json"] = id
 	} else {
 		u.Data["json"] = "addContact failed"
 	}
@@ -130,17 +132,12 @@ func (u *UserController) DelContact() {
 // @Description user getChat
 // @Param	username		query 	string	true		"The username for me"
 // @Param	contact			query 	string	true		"The username for contact"
-// @Success 800 {string} getChat success
-// @Failure 801 getChat failed
+// @Success 800 {string} getChat success, show chats
 // @router /:username/contacts/:contact_username/chats [get]
 func (u *UserController) GetChat() {
 	username := u.GetString(":username")
 	contact := u.GetString(":contact_username")
-	if models.GetChat(username, contact) {
-		u.Data["json"] = "getChat success"
-	} else {
-		u.Data["json"] = "getChat failed"
-	}
+	u.Data["json"] = models.GetChat(username, contact)
 	u.ServeJSON()
 }
 
