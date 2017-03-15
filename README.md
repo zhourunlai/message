@@ -193,10 +193,10 @@ GET /v1/user/:username/contacts/:contact_username/chats/:id
 ├── conf  
 │   └── app.conf  
 ├── controllers  
-│   ├── chat.go             私信交互  
-│   ├── message.go          渲染前台  
-│   ├── user.go             API 接口  
-│   └── websocket.go        WS 接口  
+│   ├── chat.go      ------------      私信交互  
+│   ├── message.go   ------------      渲染前台  
+│   ├── user.go      ------------      API 接口  
+│   └── websocket.go ------------      WS 接口  
 ├── docs  
 │   ├── doc.go  
 │   └── docs.go  
@@ -205,8 +205,8 @@ GET /v1/user/:username/contacts/:contact_username/chats/:id
 ├── message  
 ├── message.sql  
 ├── models  
-│   ├── user.go             封装 API 数据包  
-│   └── websocket.go        封装 WS 数据包  
+│   ├── user.go      ------------      封装 API 数据包  
+│   └── websocket.go ------------      封装 WS 数据包  
 ├── routers  
 │   ├── commentsRouter_message_controllers.go  
 │   └── router.go  
@@ -215,8 +215,8 @@ GET /v1/user/:username/contacts/:contact_username/chats/:id
 ├── tests  
 │   └── default_test.go  
 ├── views  
-│   ├── dist                打包生成的 js  
-│   ├── index.html          视图  
+│   ├── dist          ------------     打包生成的 js  
+│   ├── index.html    ------------     视图  
 │   ├── node_modules  
 │   ├── package.json  
 │   ├── src  
