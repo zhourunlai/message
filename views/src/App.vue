@@ -24,7 +24,7 @@ export default {
         <list></list>
     </div>
     <div class="main">
-        <Chat></Chat>
+        <chat></chat>
         <text></text>
     </div>
 </div>
