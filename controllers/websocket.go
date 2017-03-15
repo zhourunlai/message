@@ -19,7 +19,6 @@ import (
 	"net/http"
 
 	"github.com/astaxie/beego"
-	"github.com/beego/i18n"
 	"github.com/gorilla/websocket"
 
 	"message/models"
@@ -27,8 +26,7 @@ import (
 
 // WebSocketController handles WebSocket requests.
 type WebSocketController struct {
-	beego.Controller // Embed struct that has stub implementation of the interface.
-	i18n.Locale
+	beego.Controller
 }
 
 // Get method handles GET requests for WebSocketController.
