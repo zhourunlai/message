@@ -11,5 +11,5 @@ new Vue({
     el: 'body',
     components: { App },
     store: store,
-    router: router
+    router: router,
 });
