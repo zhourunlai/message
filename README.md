@@ -188,6 +188,40 @@ GET /v1/user/:username/contacts/:contact_username/chats/:id
 
 ## Coding&Testing
 
+├── Dockerfile
+├── README.md
+├── conf
+│   └── app.conf
+├── controllers
+│   ├── chat.go             私信交互
+│   ├── message.go          渲染前台
+│   ├── user.go             API 接口
+│   └── websocket.go        WS 接口
+├── docs
+│   ├── doc.go
+│   └── docs.go
+├── lastupdate.tmp
+├── main.go
+├── message
+├── message.sql
+├── models
+│   ├── user.go             封装 API 数据包
+│   └── websocket.go        封装 WS 数据包
+├── routers
+│   ├── commentsRouter_message_controllers.go
+│   └── router.go
+├── swagger
+│   └── swagger-1
+├── tests
+│   └── default_test.go
+├── views
+│   ├── dist                打包生成的 js
+│   ├── index.html          视图
+│   ├── node_modules
+│   ├── package.json
+│   ├── src
+│   └── webpack.config.js
+
 ```
 cd $GOPATH/src/
 //安装beego
