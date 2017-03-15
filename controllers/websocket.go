@@ -1,17 +1,3 @@
-// Copyright 2013 Beego Samples authors
-//
-// Licensed under the Apache License, Version 2.0 (the "License"): you may
-// not use this file except in compliance with the License. You may obtain
-// a copy of the License at
-//
-//     http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
-// WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
-// License for the specific language governing permissions and limitations
-// under the License.
-
 package controllers
 
 import (
@@ -31,25 +17,22 @@ type WebSocketController struct {
 
 // Get method handles GET requests for WebSocketController.
 func (this *WebSocketController) Get() {
-	// Safe check.
-	uname := this.GetString("uname")
-	if len(uname) == 0 {
-		this.Redirect("/", 302)
-		return
-	}
+
+	username := this.GetString("username")
+	// if len(username) == 0 {
+	// 	this.Redirect("/", 302)
+	// 	return
+	// }
 
 	this.TplName = "websocket.html"
 	this.Data["IsWebSocket"] = true
-	this.Data["UserName"] = uname
+	this.Data["UserName"] = username
 }
 
 // Join method handles WebSocket requests for WebSocketController.
 func (this *WebSocketController) Join() {
-	uname := this.GetString("uname")
-	if len(uname) == 0 {
-		this.Redirect("/", 302)
-		return
-	}
+
+	username := this.GetString("username")
 
 	// Upgrade from http request to WebSocket.
 	ws, err := websocket.Upgrade(this.Ctx.ResponseWriter, this.Ctx.Request, nil, 1024, 1024)
@@ -62,8 +45,8 @@ func (this *WebSocketController) Join() {
 	}
 
 	// Join chat room.
-	Join(uname, ws)
-	defer Leave(uname)
+	Join(username, ws)
+	defer Leave(username)
 
 	// Message receive loop.
 	for {
@@ -71,7 +54,7 @@ func (this *WebSocketController) Join() {
 		if err != nil {
 			return
 		}
-		publish <- newEvent(models.EVENT_MESSAGE, uname, string(p))
+		publish <- newEvent(models.EVENT_MESSAGE, username, string(p))
 	}
 }
 

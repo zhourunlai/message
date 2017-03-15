@@ -24,4 +24,5 @@ func init() {
 	beego.AddNamespace(ns)
 
 	beego.Router("/message", &controllers.MessageController{})
+	beego.Router("/websocket", &controllers.WebSocketController{})
 }
