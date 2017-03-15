@@ -10,7 +10,7 @@ import (
 	"message/models"
 )
 
-// WebSocketController handles WebSocket requests.
+// Operations about WebSocket
 type WebSocketController struct {
 	beego.Controller
 }
