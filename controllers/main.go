@@ -20,7 +20,7 @@ type Subscription struct {
 }
 
 func (this *MainController) Get() {
-	this.Data["username"] = "xiaorun"
+	// this.Data["username"] = "xiaorun"
 	this.TplName = "index.html"
 }
 
