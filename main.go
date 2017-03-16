@@ -1,6 +1,7 @@
 package main
 
 import (
+	"message/controllers"
 	_ "message/docs"
 	_ "message/routers"
 
@@ -15,6 +16,8 @@ func main() {
 
 	// 设置静态资源目录
 	beego.SetStaticPath("/dist", "views/dist")
+
+	beego.ErrorController(&controllers.ErrorController{})
 
 	beego.Run()
 }
