@@ -2,7 +2,6 @@ package controllers
 
 import (
 	"message/models"
-	"net/http"
 	"strconv"
 
 	"github.com/astaxie/beego"
@@ -29,15 +28,13 @@ func init() {
 // @Success 100 {string} signin success
 // @Failure 101 signin failed
 // @router /signin [get]
-func (u *UserController) Signin(w http.ResponseWriter, r *http.Request) {
+func (u *UserController) Signin() {
 	username := u.GetString("username")
 	password := u.GetString("password")
 
-	sess, _ := globalSessions.SessionStart(w, r)
-	defer sess.SessionRelease(w)
-
 	if models.Signin(username, password) {
-		sess.Set("username", username) // 设置 cookie
+		sess := u.StartSession()
+		sess.Set("username", username)
 		u.Data["json"] = "signin success"
 	} else {
 		u.Data["json"] = "signin failed"
@@ -69,6 +66,8 @@ func (u *UserController) Signup() {
 // @Failure 301 signout failed
 // @router /signout [get]
 func (u *UserController) Signout() {
+	sess := u.StartSession()
+	sess.Delete("username")
 	u.Data["json"] = "signout success"
 	u.ServeJSON()
 }
