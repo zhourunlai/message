@@ -30,6 +30,7 @@ func init() {
 // @router /signin [get]
 func (u *UserController) Signin() {
 	sess := u.StartSession()
+	// 判断是否记住登陆状态
 	if sess.Get("username") != nil {
 		u.Data["json"] = "auto signin success"
 	} else {
