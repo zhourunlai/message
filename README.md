@@ -9,6 +9,7 @@
 * [Database Design](#database-design)
 * [API Design](#api-design)
 * [Coding&Testing](#codingtesting)
+* [Notice](#notice)
 
 
 ---
@@ -245,3 +246,9 @@ cnpm run dev
 cnpm run build
 ```
 ![5](http://ww1.sinaimg.cn/large/9f47c048gy1fdmuudctk7j21kw0zkdsm)
+
+
+## Notice
+1. 登陆后发送请求包括：获取本用户 info ，获取联系人列表，获取未读消息
+2. ws 传输的数据包括：私信，session 正在输入，是否在线
+3. 历史消息懒加载
