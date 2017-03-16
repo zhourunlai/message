@@ -25,8 +25,8 @@ export default {
 
 <template>
 <div class="signup">
-    <input type="text" />
-    <input type="password" />
+    <input type="text" name="username" />
+    <input type="password" name="password" />
     <button>sign up</button>
 </div>
 </template>
