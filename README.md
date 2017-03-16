@@ -77,7 +77,10 @@ Database: MySQL
 
 4. Docker 部署  
 
-学习：[beego 的 MVC 架构介绍](https://beego.me/docs/mvc/)  
+学习：  
+[beego 的 MVC 架构介绍](https://beego.me/docs/mvc/)    
+[关于轮询、长轮询、长连接、WebSocket等推送方案](https://github.com/Hipponensis/Notes/blob/master/%E5%85%B3%E4%BA%8E%E8%BD%AE%E8%AF%A2%E3%80%81%E9%95%BF%E8%BD%AE%E8%AF%A2%E3%80%81%E9%95%BF%E8%BF%9E%E6%8E%A5%E3%80%81WebSocket%E7%AD%89%E6%8E%A8%E9%80%81%E6%96%B9%E6%A1%88.md)  
+
 
 ![2](http://ww1.sinaimg.cn/large/9f47c048gy1fdlnu5ebs0j21kw16oakv)
 
