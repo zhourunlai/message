@@ -199,7 +199,7 @@ GET /v1/user/:username/contacts/:contact_username/chats/unread
 
 ├── Dockerfile  
 ├── README.md  
-├── cmd.sh          ------------       Docker 启动时执行的命令
+├── cmd.sh          ------------       Docker 启动时执行的命令  
 ├── conf        
 │   └── app.conf  
 ├── controllers   
