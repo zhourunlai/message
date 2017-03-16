@@ -29,15 +29,18 @@ func init() {
 // @Failure 101 signin failed
 // @router /signin [get]
 func (u *UserController) Signin() {
-	username := u.GetString("username")
-	password := u.GetString("password")
-
-	if models.Signin(username, password) {
-		sess := u.StartSession()
-		sess.Set("username", username)
-		u.Data["json"] = "signin success"
+	sess := u.StartSession()
+	if sess.Get("username") != nil {
+		u.Data["json"] = "auto signin success"
 	} else {
-		u.Data["json"] = "signin failed"
+		username := u.GetString("username")
+		password := u.GetString("password")
+		if models.Signin(username, password) {
+			sess.Set("username", username)
+			u.Data["json"] = "signin success"
+		} else {
+			u.Data["json"] = "signin failed"
+		}
 	}
 	u.ServeJSON()
 }
