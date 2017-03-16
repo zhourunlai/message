@@ -6,6 +6,11 @@ Vue.use(Vuex);
 const now = new Date();
 const store = new Vuex.Store({
     state: {
+        // 获取 username
+        // url = window.location.href;
+        // var username = url.split("user=");
+        // username = username[1];
+
         // 当前用户
         user: {
             name: 'xiaorun',
@@ -42,6 +47,21 @@ const store = new Vuex.Store({
                     },
                 ]
             }
+
+            // this.$http.get('/v1/user/xiaorun/contacts', {
+            //     params: {
+            //         name: this.username,
+            //         img: '',
+            //
+            //     }
+            // }).then((response) => {
+            //     transition.next({
+            //         data: response.json().data,
+            //     })
+            // }, (response) => {
+            //     // error
+            // })
+
         ],
         // 当前会话
         currentSessionId: 1,
