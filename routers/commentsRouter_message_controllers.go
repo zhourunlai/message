@@ -76,4 +76,11 @@ func init() {
 			[]string{"get"},
 			nil})
 
+	beego.GlobalControllerRouter["message/controllers:UserController"] = append(beego.GlobalControllerRouter["message/controllers:UserController"],
+		beego.ControllerComments{
+			"GetUnreadChat",
+			`/:username/contacts/:contact_username/chats/unread`,
+			[]string{"get"},
+			nil})
+
 }

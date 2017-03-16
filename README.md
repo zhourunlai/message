@@ -238,7 +238,7 @@ git clone https://github.com/zhourunlai/message.git & cd message/
 //启动
 bee run -downdoc=true -gendoc=true
 ```
-![3](http://ww1.sinaimg.cn/large/9f47c048gy1fdmuil79rrj21kw0zktlj)
+![3](http://ww1.sinaimg.cn/large/9f47c048gy1fdojxyd41aj21kw0zknb4)
 ![4](http://ww1.sinaimg.cn/large/9f47c048gy1fdm8bk33yxj21kw0zkamm)
 
 ```
