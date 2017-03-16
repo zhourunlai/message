@@ -16,7 +16,7 @@ ADD cmd.sh /cmd.sh
 RUN chmod +x /cmd.sh
 RUN /cmd.sh
 
-#Usage
+# Usage
 # docker build -t message
 # docker run --name db -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=message -d mysql
 # docker run --rm --link db:mysql -v "$(pwd)"/mysql:/home/mysql -it mysql sh -c 'exec mysql -h"$MYSQL_PORT_3306_TCP_ADDR" -P"$MYSQL_PORT_3306_TCP_PORT" -uroot -p beeblog < message.sql'
