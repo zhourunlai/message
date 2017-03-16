@@ -155,3 +155,10 @@ func UpdateChat(id int64) bool {
 	}
 	return true
 }
+
+func GetUnreadChat(username, contact string) []*Chat {
+	o := orm.NewOrm()
+	var chat []*Chat
+	o.QueryTable(new(Chat)).Filter("sender", contact).Filter("receiver", username).Filter("is_read", 0).GroupBy("sender").All(&chat)
+	return chat
+}

@@ -192,3 +192,16 @@ func (u *UserController) UpdateChat() {
 	}
 	u.ServeJSON()
 }
+
+// @Title getUnreadChat
+// @Description user getUnreadChat
+// @Param	username		query 	string	true		"The username for me"
+// @Param	contact			query 	string	true		"The username for contact"
+// @Success 800 {string} getUnreadChat success, show unread chats count
+// @router /:username/contacts/:contact_username/chats/unread [get]
+func (u *UserController) GetUnreadChat() {
+	username := u.GetString(":username")
+	contact := u.GetString(":contact_username")
+	u.Data["json"] = models.GetUnreadChat(username, contact)
+	u.ServeJSON()
+}
