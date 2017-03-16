@@ -4,7 +4,7 @@ import Vue from 'vue';
 import App from './App';
 import store from './store';
 import router from './router';
-import resource from './resource';
+// import resource from './resource';
 
 Vue.config.devtools = true;
 
@@ -13,5 +13,7 @@ new Vue({
     components: { App },
     store: store,
     router: router,
-    resource:resource,
+    //resource: resource,
 });
+
+router.push('/signup');
