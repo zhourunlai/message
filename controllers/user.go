@@ -2,14 +2,24 @@ package controllers
 
 import (
 	"message/models"
+	"net/http"
 	"strconv"
 
 	"github.com/astaxie/beego"
+	"github.com/astaxie/beego/session"
 )
 
 // Operations about Users
 type UserController struct {
 	beego.Controller
+}
+
+// Cookie
+var globalSessions *session.Manager
+
+func init() {
+	globalSessions, _ = session.NewManager("memory", `{"cookieName":"gosessionid", "enableSetCookie,omitempty": true, "gclifetime":3600, "maxLifetime": 3600, "secure": false, "sessionIDHashFunc": "sha1", "sessionIDHashKey": "", "cookieLifeTime": 3600, "providerConfig": ""}`)
+	go globalSessions.GC()
 }
 
 // @Title signin
@@ -19,10 +29,15 @@ type UserController struct {
 // @Success 100 {string} signin success
 // @Failure 101 signin failed
 // @router /signin [get]
-func (u *UserController) Signin() {
+func (u *UserController) Signin(w http.ResponseWriter, r *http.Request) {
 	username := u.GetString("username")
 	password := u.GetString("password")
+
+	sess, _ := globalSessions.SessionStart(w, r)
+	defer sess.SessionRelease(w)
+
 	if models.Signin(username, password) {
+		sess.Set("username", username) // 设置 cookie
 		u.Data["json"] = "signin success"
 	} else {
 		u.Data["json"] = "signin failed"
