@@ -190,7 +190,8 @@ GET /v1/user/:username/contacts/:contact_username/chats/:id
 
 ├── Dockerfile  
 ├── README.md  
-├── conf  
+├── cmd.sh          ------------       Docker 启动时执行的命令
+├── conf        
 │   └── app.conf  
 ├── controllers   
 │   ├── main.go      ------------      渲染前台  
